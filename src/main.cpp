@@ -9,7 +9,7 @@ int main() {
     unsigned beggin, end;
 
     beggin=clock();
-    LinkedList<Array<Integer>> lista = LinkedList<Array<Integer>>::addFactorialToLinkedList(1000, 3);
+    LinkedList<Array<Integer>>lista = LinkedList<Array<Integer>>::addFactorialToLinkedList(1000, 3);
     end = clock();
     lista.flipLinkedList();
     cout<<"---------------------------------"<<endl;
