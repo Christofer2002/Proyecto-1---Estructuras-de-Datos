@@ -9,17 +9,17 @@ Integer::Integer(){
     this->num = 0;
 }
 
-Integer::Integer(long num) {
+Integer::Integer(long long num) {
     this->num = num;
 }
 
 Integer::~Integer()= default;
 
-void Integer::setNum(long num) {
+void Integer::setNum(long long num) {
     this->num = num;
 }
 
-long Integer::getNum() const {
+long long Integer::getNum() const {
     return num;
 }
 

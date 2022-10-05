@@ -4,19 +4,19 @@
 
 #ifndef PROYECTO_1_ARRAY_H
 #define PROYECTO_1_ARRAY_H
+#define CAPACITY 3
 #include "Integer.h"
 
 using namespace std;
 
 template<class T>
 class Array {
-#define CAPACITY 3
 private:
-    int k;
-    Integer *a[CAPACITY];
+    int k{};
+    Integer *a[CAPACITY]{};
 public:
     Array();
-    Array(int n);
+    explicit Array(int n);
     T get(int i);
     int getK() const;
     void setK(int k);
@@ -32,9 +32,7 @@ template <class T>
     }
 
     template <class T>
-    Array<T>::Array() {
-
-    }
+    Array<T>::Array() = default;
 
     template<class T>
     int Array<T>::getK() const {

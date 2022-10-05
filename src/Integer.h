@@ -10,16 +10,15 @@
 
 using namespace std;
 
-//template <class T>
 class Integer {
 private:
-    unsigned long num;
+    unsigned long long num;
 public:
     Integer();
-    Integer(long num);
+    Integer(long long num);
     ~Integer();
-    void setNum(long num);
-    long getNum() const;
+    void setNum(long long num);
+    long long getNum() const;
     string toString() const;
 };
 

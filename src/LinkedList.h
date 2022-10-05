@@ -15,12 +15,9 @@ class LinkedList {
 private:
     Link *primero;
     Link *actual;
-    size_t n;
 public:
     LinkedList();
-    LinkedList(Link *primero, Link *actual);
     ~LinkedList();
-    void setN(size_t n);
     void add(T *info);
     static BigInt factorial(int num);
     static LinkedList addFactorialToLinkedList(int num, int pos);
@@ -37,13 +34,6 @@ template<class T>
 LinkedList<T>::LinkedList() {
     primero = nullptr;
     actual = nullptr;
-    n = 0;
-}
-
-template<class T>
-LinkedList<T>::LinkedList(Link *primero, Link *actual) {
-    this->primero = primero;
-    this->actual = actual;
 }
 
 template<class T>
@@ -57,11 +47,6 @@ LinkedList<T>::~LinkedList() {
 }
 
 template<class T>
-void LinkedList<T>::setN(size_t n) {
-    LinkedList::n = n;
-}
-
-template<class T>
 void LinkedList<T>::add(T *info) {
     actual = new Link(info, nullptr);
     if (primero == nullptr) {
@@ -71,7 +56,6 @@ void LinkedList<T>::add(T *info) {
         primero = actual;
 
     }
-    n++;
 }
 
 template<class T>
@@ -125,7 +109,7 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
     long long number = 0;
     int postInit = 0, time = 0;
     sub = fibonnacci(n).to_string();
-    for (int i = 0; i < round((sub.size() / pos) / 10.0) * 10.0; ++i) {
+    for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
         (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
                 sub.substr(postInit, pos - 1));
         integer = new Integer(number);
@@ -155,7 +139,7 @@ LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos)
     long long number = 0;
     int postInit = 0, time = 0;
     sub = combinatoria(a, b).to_string();
-    for (int i = 0; i < round((sub.size() / pos) / 10.0) * 10.0; ++i) {
+    for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
         (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
                 sub.substr(postInit, pos - 1));
         integer = new Integer(number);
@@ -192,7 +176,7 @@ template<class T>
 void LinkedList<T>::flipLinkedList() {
     Link *prev = nullptr;
     Link *current = primero;
-    Link *next = nullptr;
+    Link *next;
     while (current != nullptr) {
         next = current->getSig();
         current->setSig(prev);
