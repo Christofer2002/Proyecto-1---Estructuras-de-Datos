@@ -9,13 +9,6 @@
 
 #include <tuple>
 
-
-/*
-    is_valid_number
-    ---------------
-    Checks whether the given string is a valid integer.
-*/
-
 bool Extra::is_valid_number(const std::string& num) {
     for (char digit : num)
         if (digit < '0' or digit > '9')

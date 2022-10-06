@@ -26,7 +26,6 @@ public:
     static LinkedList<T> addFibonnacciToLinkedList(int n, int pos);
     static Integer combinatoria(int a, int b);
     static LinkedList<T> addCombinationalToLinkedList(int a, int b, int pos);
-    static long parse(const string& sub);
     void flipLinkedList();
     string toString();
 };
@@ -75,9 +74,16 @@ LinkedList<T> LinkedList<T>::addFactorialToLinkedList(int num, int pos) {
     auto *array = new Array<AlmacenaNum>(3);
     AlmacenaNum *integer;
     int postInit = 0, time = 0;
-    string sub = factorial(num).to_string();
-    for (int i = 0; i < round(sub.size() / pos); i++) {
-        integer = new AlmacenaNum(parse(sub.substr(postInit, pos)));
+    string sub = factorial(num).toString();
+    int tam = round(sub.size() / pos);
+    for (int i = 0; i < tam; i++) {
+        if(i == tam-1){
+            integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
+            array->add(integer);
+            ll->add(array);
+            break;
+        }
+        integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
         array->add(integer);
         time += 1;
         if (time == pos) {
@@ -109,10 +115,18 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
-    sub = fibonnacci(n).to_string();
-    for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
-        (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
-                sub.substr(postInit, pos - 1));
+    sub = fibonnacci(n).toString();
+    int e = sub.size();
+    int tam = round(((sub.size() / pos) / 10.0) * 10.0)+1;
+    for (int i = 0; i < tam; ++i) {
+        (i != tam) ? number = Integer::parse(sub.substr(postInit, pos)) : number = Integer::parse(
+                sub.substr(postInit, pos-1));
+        if(i == tam-1){
+            integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
+            array->add(integer);
+            ll->add(array);
+            break;
+        }
         integer = new AlmacenaNum(number);
         array->add(integer);
         time += 1;
@@ -139,26 +153,29 @@ LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos)
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
-    sub = combinatoria(a, b).to_string();
-    for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
-        (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
+    sub = combinatoria(a, b).toString();
+    int tam = round(((sub.size() / pos) / 10.0) * 10.0);
+    for (int i = 0; i < tam; ++i) {
+        (i != tam) ? number = Integer::parse(sub.substr(postInit, pos)) : number = Integer::parse(
                 sub.substr(postInit, pos - 1));
-        integer = new AlmacenaNum(number);
-        array->add(integer);
-        time += 1;
-        if (time == pos) {
+        if(i == tam-1){
+            integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
+            array->add(integer);
             ll->add(array);
-            array = new Array<AlmacenaNum>(3);
-            time = 0;
+            break;
+        }else{
+            integer = new AlmacenaNum(number);
+            array->add(integer);
+            time += 1;
+            if (time == pos) {
+                ll->add(array);
+                array = new Array<AlmacenaNum>(3);
+                time = 0;
+            }
+            postInit += pos;
         }
-        postInit += pos;
     }
     return *ll;
-}
-
-template<class T>
-long LinkedList<T>::parse(const string& sub) {
-    return stol(sub);
 }
 
 template<class T>

@@ -1,5 +1,5 @@
-#ifndef BIG_INT_HPP
-#define BIG_INT_HPP
+#ifndef INTEGER_H
+#define INTEGER_H
 
 #include <iostream>
 #include "Extra.h"
@@ -8,24 +8,18 @@ class Integer {
     std::string value;
     char sign;
     Extra* e = new Extra();
-
 public:
-    // Constructors:
+    // Constructores
     Integer();
     Integer(const Integer&);
     Integer(const long long&);
     Integer(const std::string&);
 
-    // Assignment operators:
-    Integer& operator=(const Integer&);
-    Integer& operator=(const long long&);
-    Integer& operator=(const std::string&);
-
-    // Unary arithmetic operators:
+    // Operadores aritméticos unitarios
     Integer operator+() const;   // unary +
     Integer operator-() const;   // unary -
 
-    // Binary arithmetic operators:
+    // Operadores aritmeticos binarios
     Integer operator+(const Integer&) const;
     Integer operator-(const Integer&) const;
     Integer operator*(const Integer&) const;
@@ -42,7 +36,7 @@ public:
     Integer operator/(const std::string&) const;
     Integer operator%(const std::string&) const;
 
-    // Arithmetic-assignment operators:
+    // Operadores de asignacion
     Integer& operator+=(const Integer&);
     Integer& operator-=(const Integer&);
     Integer& operator*=(const Integer&);
@@ -58,14 +52,17 @@ public:
     Integer& operator*=(const std::string&);
     Integer& operator/=(const std::string&);
     Integer& operator%=(const std::string&);
+    Integer& operator=(const Integer&);
+    Integer& operator=(const long long&);
+    Integer& operator=(const std::string&);
 
-    // Increment and decrement operators:
+    // Operadores de incremento y decremento
     Integer& operator++();       // pre-increment
     Integer& operator--();       // pre-decrement
     Integer operator++(int);     // post-increment
     Integer operator--(int);     // post-decrement
 
-    // Relational operators:
+    // Operaciones de comparacion
     bool operator<(const Integer&) const;
     bool operator>(const Integer&) const;
     bool operator<=(const Integer&) const;
@@ -85,19 +82,10 @@ public:
     bool operator==(const std::string&) const;
     bool operator!=(const std::string&) const;
 
-    // I/O stream operators:
-    friend std::istream& operator>>(std::istream&, Integer&);
-    friend std::ostream& operator<<(std::ostream&, const Integer&);
-
-    // Conversion functions:
-    std::string to_string() const;
-    int to_int() const;
-    long to_long() const;
-    long long to_long_long() const;
-
-    //Extra functions:
-
+    // Funciones de conversion
+    std::string toString() const;
+    static long parse(const std::string& sub);
 
 };
 
-#endif  // BIG_INT_HPP
+#endif

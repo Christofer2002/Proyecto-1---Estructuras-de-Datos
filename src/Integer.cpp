@@ -1,24 +1,11 @@
-//
-// Created by PC on 10/6/2022.
-//
-#include "Integer.h"
 
-/*
-    Default constructor
-    -------------------
-*/
+#include "Integer.h"
 
 Integer::Integer() {
     value = "0";
     sign = '+';
 
 }
-
-
-/*
-    Copy constructor
-    ----------------
-*/
 
 Integer::Integer(const Integer& num) {
     value = num.value;
@@ -56,7 +43,7 @@ Integer::Integer(const std::string& num) {
             sign = num[0];
         }
         else {
-            throw std::invalid_argument("Expected an integer, got \'" + num + "\'");
+            throw std::invalid_argument("Se esperaba un integer \'" + num + "\'");
         }
     }
     else {      // if no sign is specified
@@ -65,13 +52,12 @@ Integer::Integer(const std::string& num) {
             sign = '+';    // positive by default
         }
         else {
-            throw std::invalid_argument("Expected an integer, got \'" + num + "\'");
+            throw std::invalid_argument("Se esperaba un integer \'" + num + "\'");
         }
     }
     e->strip_leading_zeroes(value);
 }
 
-//#endif  // BIG_INT_CONSTRUCTORS_HPP
 
 
 /*
@@ -79,72 +65,19 @@ Integer::Integer(const std::string& num) {
     Conversion functions for Integer
     ===========================================================================
 */
-
-#ifndef BIG_INT_CONVERSION_FUNCTIONS_HPP
-#define BIG_INT_CONVERSION_FUNCTIONS_HPP
-
-
 /*
-    to_string
+    toString
     ---------
     Converts a Integer to a string.
 */
 
-std::string Integer::to_string() const {
+std::string Integer::toString() const {
     // prefix with sign if negative
     return this->sign == '-' ? "-" + this->value : this->value;
 }
 
-
-/*
-    to_int
-    ------
-    Converts a Integer to an int.
-    NOTE: If the Integer is out of range of an int, stoi() will throw an
-    out_of_range exception.
-*/
-
-int Integer::to_int() const {
-    return std::stoi(this->to_string());
-}
-
-
-/*
-    to_long
-    -------
-    Converts a Integer to a long int.
-    NOTE: If the Integer is out of range of a long int, stol() will throw an
-    out_of_range exception.
-*/
-
-long Integer::to_long() const {
-    return std::stol(this->to_string());
-}
-
-
-/*
-    to_long_long
-    ------------
-    Converts a Integer to a long long int.
-    NOTE: If the Integer is out of range of a long long int, stoll() will throw
-    an out_of_range exception.
-*/
-
-long long Integer::to_long_long() const {
-    return std::stoll(this->to_string());
-}
-
-#endif  // BIG_INT_CONVERSION_FUNCTIONS_HPP
-
-
-/*
-    ===========================================================================
-    Assignment operators
-    ===========================================================================
-*/
-
-#ifndef BIG_INT_ASSIGNMENT_OPERATORS_HPP
-#define BIG_INT_ASSIGNMENT_OPERATORS_HPP
+#ifndef INTEGER_ASSIGNMENT_OPERATORS_H
+#define INTEGER_ASSIGNMENT_OPERATORS_H
 
 
 
@@ -188,7 +121,7 @@ Integer& Integer::operator=(const std::string& num) {
     return *this;
 }
 
-#endif  // BIG_INT_ASSIGNMENT_OPERATORS_HPP
+#endif
 
 
 /*
@@ -197,8 +130,8 @@ Integer& Integer::operator=(const std::string& num) {
     ===========================================================================
 */
 
-#ifndef BIG_INT_UNARY_ARITHMETIC_OPERATORS_HPP
-#define BIG_INT_UNARY_ARITHMETIC_OPERATORS_HPP
+#ifndef INTEGER_UNARY_ARITHMETIC_OPERATORS_H
+#define INTEGER_UNARY_ARITHMETIC_OPERATORS_H
 
 
 
@@ -235,7 +168,7 @@ Integer Integer::operator-() const {
     return temp;
 }
 
-#endif  // BIG_INT_UNARY_ARITHMETIC_OPERATORS_HPP
+#endif
 
 
 /*
@@ -245,8 +178,8 @@ Integer Integer::operator-() const {
     All operators depend on the '<' and/or '==' operator(s).
 */
 
-#ifndef BIG_INT_RELATIONAL_OPERATORS_HPP
-#define BIG_INT_RELATIONAL_OPERATORS_HPP
+#ifndef INTEGER_RELATIONAL_OPERATORS_H
+#define INTEGER_RELATIONAL_OPERATORS_H
 
 
 
@@ -679,7 +612,7 @@ Integer sqrt(const Integer& num) {
     // Since a number's square root has at least one less than half as many
     // digits as the number,
     //     sqrt_current = 10^(half_the_digits_in_num - 1)
-    Integer sqrt_current = big_pow10(num.to_string().size() / 2 - 1);
+    Integer sqrt_current = big_pow10(num.toString().size() / 2 - 1);
 
     while (abs(sqrt_current - sqrt_prev) > 1) {
         sqrt_prev = sqrt_current;
@@ -822,13 +755,6 @@ Integer Integer::operator-(const Integer& num) const {
     return result;
 }
 
-
-/*
-    Integer * Integer
-    ---------------
-    Computes the product of two Integers using Karatsuba's algorithm.
-    The operand on the RHS of the product is `num`.
-*/
 
 Integer Integer::operator*(const Integer& num) const {
     if (*this == 0 or num == 0)
@@ -1473,47 +1399,11 @@ Integer Integer::operator--(int) {
     return temp;
 }
 
-#endif  // BIG_INT_INCREMENT_DECREMENT_OPERATORS_HPP
-
-
-/*
-    ===========================================================================
-    I/O stream operators
-    ===========================================================================
-*/
-
-#ifndef BIG_INT_IO_STREAM_OPERATORS_HPP
-#define BIG_INT_IO_STREAM_OPERATORS_HPP
-
-
-
-/*
-    Integer from input stream
-    ------------------------
-*/
-
-std::istream& operator>>(std::istream& in, Integer& num) {
-    std::string input;
-    in >> input;
-    num = Integer(input);  // remove sign from value and set sign, if exists
-
-    return in;
+//converts a string to a long
+long Integer::parse(const std::string &sub) {
+    return std::stol(sub);
 }
 
-
-/*
-    Integer to output stream
-    -----------------------
-*/
-
-std::ostream& operator<<(std::ostream& out, const Integer& num) {
-    if (num.sign == '-')
-        out << num.sign;
-    out << num.value;
-
-    return out;
-}
-
-#endif  // BIG_INT_IO_STREAM_OPERATORS_HPP
+#endif
 
 

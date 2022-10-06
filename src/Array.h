@@ -28,6 +28,9 @@ public:
 
 template <class T>
     Array<T>::Array(int n) {
+        for (int i = 0; i < n; i++) {
+            a[i] = new T();
+        }
         this->k = 0;
     }
 
