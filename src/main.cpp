@@ -9,7 +9,7 @@ int main() {
     unsigned beggin, end;
 
     beggin=clock();
-    LinkedList<Array<Integer>>lista = LinkedList<Array<Integer>>::addFactorialToLinkedList(1000, 3);
+    LinkedList<Array<AlmacenaNum>>lista = LinkedList<Array<AlmacenaNum>>::addFactorialToLinkedList(1000, 3);
     end = clock();
     lista.flipLinkedList();
     cout<<"---------------------------------"<<endl;
@@ -18,7 +18,7 @@ int main() {
     double time = (double(end - beggin) / CLOCKS_PER_SEC);
     cout << "Tiempo de ejecucion de metodo Factorial de 3 numeros en cada posicion del Array: " << time << endl;
 
-    lista = LinkedList<Array<Integer>>::addFibonnacciToLinkedList(1000, 3);
+    lista = LinkedList<Array<AlmacenaNum>>::addFibonnacciToLinkedList(1000, 3);
     end = clock();
     lista.flipLinkedList();
     cout<<"---------------------------------"<<endl;
@@ -27,7 +27,7 @@ int main() {
     time = (double(end - beggin) / CLOCKS_PER_SEC);
     cout << "Tiempo de ejecucion de metodo Fibonnacci de 3 numeros en cada posicion del Array: " << time << endl;
 
-    lista = LinkedList<Array<Integer>>::addCombinationalToLinkedList(1000,500, 3);
+    lista = LinkedList<Array<AlmacenaNum>>::addCombinationalToLinkedList(1000,500, 3);
     end = clock();
     lista.flipLinkedList();
     cout<<"---------------------------------"<<endl;

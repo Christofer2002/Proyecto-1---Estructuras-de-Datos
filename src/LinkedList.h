@@ -6,8 +6,9 @@
 #define PROYECTO_1_LINKEDLIST_H
 
 #include "Link.h"
-#include "BigInt.hpp"
+#include "Integer.h"
 #include <cstring>
+#include <cmath>
 
 template<class T>
 class LinkedList {
@@ -19,11 +20,11 @@ public:
     LinkedList();
     ~LinkedList();
     void add(T *info);
-    static BigInt factorial(int num);
+    static Integer factorial(int num);
     static LinkedList addFactorialToLinkedList(int num, int pos);
-    static BigInt fibonnacci(int num);
+    static Integer fibonnacci(int num);
     static LinkedList<T> addFibonnacciToLinkedList(int n, int pos);
-    static BigInt combinatoria(int a, int b);
+    static Integer combinatoria(int a, int b);
     static LinkedList<T> addCombinationalToLinkedList(int a, int b, int pos);
     static long parse(const string& sub);
     void flipLinkedList();
@@ -59,8 +60,8 @@ void LinkedList<T>::add(T *info) {
 }
 
 template<class T>
-BigInt LinkedList<T>::factorial(int num) {
-    BigInt a = 0, b = 1;
+Integer LinkedList<T>::factorial(int num) {
+    Integer a = 0, b = 1;
     for (int i = 1; i <= num; i++) {
         a = b;
         b = a * i;
@@ -70,18 +71,18 @@ BigInt LinkedList<T>::factorial(int num) {
 
 template<class T>
 LinkedList<T> LinkedList<T>::addFactorialToLinkedList(int num, int pos) {
-    auto *ll = new LinkedList<Array<Integer>>();
-    auto *array = new Array<Integer>(3);
-    Integer *integer;
+    auto *ll = new LinkedList<Array<AlmacenaNum>>();
+    auto *array = new Array<AlmacenaNum>(3);
+    AlmacenaNum *integer;
     int postInit = 0, time = 0;
     string sub = factorial(num).to_string();
     for (int i = 0; i < round(sub.size() / pos); i++) {
-        integer = new Integer(parse(sub.substr(postInit, pos)));
+        integer = new AlmacenaNum(parse(sub.substr(postInit, pos)));
         array->add(integer);
         time += 1;
         if (time == pos) {
             ll->add(array);
-            array = new Array<Integer>(3);
+            array = new Array<AlmacenaNum>(3);
             time = 0;
         }
         postInit += pos;
@@ -90,8 +91,8 @@ LinkedList<T> LinkedList<T>::addFactorialToLinkedList(int num, int pos) {
 }
 
 template <class T>
-BigInt LinkedList<T>::fibonnacci(int num) {
-    BigInt a = 0, b = 1, c = 0;
+Integer LinkedList<T>::fibonnacci(int num) {
+    Integer a = 0, b = 1, c = 0;
     for (int i = 2; i <= num; i++) {
         c = a + b;
         a = b;
@@ -102,9 +103,9 @@ BigInt LinkedList<T>::fibonnacci(int num) {
 
 template<class T>
 LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
-    auto *ll = new LinkedList<Array<Integer>>();
-    auto *array = new Array<Integer>(3);
-    Integer *integer;
+    auto *ll = new LinkedList<Array<AlmacenaNum>>();
+    auto *array = new Array<AlmacenaNum>(3);
+    AlmacenaNum *integer;
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
@@ -112,12 +113,12 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
     for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
         (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
                 sub.substr(postInit, pos - 1));
-        integer = new Integer(number);
+        integer = new AlmacenaNum(number);
         array->add(integer);
         time += 1;
         if (time == pos) {
             ll->add(array);
-            array = new Array<Integer>(3);
+            array = new Array<AlmacenaNum>(3);
             time = 0;
         }
         postInit += pos;
@@ -126,15 +127,15 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
 }
 
 template<class T>
-BigInt LinkedList<T>::combinatoria(int a, int b) {
+Integer LinkedList<T>::combinatoria(int a, int b) {
     return factorial(a) / (factorial(b) * factorial(a - b));
 }
 
 template<class T>
 LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos) {
-    auto *ll = new LinkedList<Array<Integer>>();
-    auto *array = new Array<Integer>(3);
-    Integer *integer;
+    auto *ll = new LinkedList<Array<AlmacenaNum>>();
+    auto *array = new Array<AlmacenaNum>(3);
+    AlmacenaNum *integer;
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
@@ -142,12 +143,12 @@ LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos)
     for (int i = 0; i < round(((sub.size() / pos) / 10.0) * 10.0); ++i) {
         (i != round((sub.size() / pos) / 10.0) * 10.0) ? number = parse(sub.substr(postInit, pos)) : number = parse(
                 sub.substr(postInit, pos - 1));
-        integer = new Integer(number);
+        integer = new AlmacenaNum(number);
         array->add(integer);
         time += 1;
         if (time == pos) {
             ll->add(array);
-            array = new Array<Integer>(3);
+            array = new Array<AlmacenaNum>(3);
             time = 0;
         }
         postInit += pos;

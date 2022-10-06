@@ -4,18 +4,18 @@
 
 #include "Link.h"
 
-Link::Link(Array<Integer> *info, Link *sig) {
+Link::Link(Array<AlmacenaNum> *info, Link *sig) {
     this->info = info;
     this->sig = sig;
 }
 
 Link::~Link() {}
 
-void Link::setInfo(Array<Integer>* info) {
+void Link::setInfo(Array<AlmacenaNum>* info) {
     this->info = info;
 }
 
-Array<Integer>* Link::getInfo() {
+Array<AlmacenaNum>* Link::getInfo() {
     return info;
 }
 
@@ -31,7 +31,7 @@ string Link::toStringNodo() {
     return info->toString();
 }
 
-Link::Link(Array<Integer> *info) {
+Link::Link(Array<AlmacenaNum> *info) {
     this->info = info;
     this->sig = nullptr;
 }

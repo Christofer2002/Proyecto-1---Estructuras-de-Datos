@@ -6,7 +6,7 @@
  */
 TEST(ListTestSuite, factorial) {
 
-    LinkedList<Array<Integer>> lista = LinkedList<Array<Integer>>::addFactorialToLinkedList(1000,3);
+    LinkedList<Array<AlmacenaNum>> lista = LinkedList<Array<AlmacenaNum>>::addFactorialToLinkedList(1000,3);
     lista.flipLinkedList();
 
     ASSERT_EQ(lista.toString(),"|[402][387][260]|-->|[077][093][773]|-->|[543][702][433]|-->|[923][003][985]|-->|[719][374][864]|-->|[210][714][632]|-->"
@@ -61,7 +61,7 @@ TEST(ListTestSuite, factorial) {
 
 TEST(ListTestSuite, fibonnacci) {
 
-    LinkedList<Array<Integer>> lista = LinkedList<Array<Integer>>::addFibonnacciToLinkedList(1000,3);
+    LinkedList<Array<AlmacenaNum>> lista = LinkedList<Array<AlmacenaNum>>::addFibonnacciToLinkedList(1000,3);
     lista.flipLinkedList();
     ASSERT_EQ(lista.toString(), "|[434][665][576]|-->|[869][374][564]|-->|[356][885][276]|-->|[750][406][258]|-->|[025][646][605]|-->|[173][717][804]|-->"
                                 "|[024][817][290]|-->|[895][365][554]|-->|[179][490][518]|-->|[904][038][798]|-->|[400][792][551]|-->|[692][959][225]|-->"
@@ -71,7 +71,7 @@ TEST(ListTestSuite, fibonnacci) {
 
 TEST(ListTestSuite, combinatoria) {
 
-    LinkedList<Array<Integer>> lista = LinkedList<Array<Integer>>::addCombinationalToLinkedList(1000,500,3);
+    LinkedList<Array<AlmacenaNum>> lista = LinkedList<Array<AlmacenaNum>>::addCombinationalToLinkedList(1000,500,3);
     lista.flipLinkedList();
     ASSERT_EQ(lista.toString(), "|[270][288][240]|-->|[945][436][569]|-->|[515][614][693]|-->|[625][975][275]|-->|[496][152][008]|-->|[446][548][287]|-->"
                                 "|[007][392][875]|-->|[106][625][428]|-->|[705][522][193]|-->|[898][612][483]|-->|[924][502][370]|-->|[165][362][606]|-->"

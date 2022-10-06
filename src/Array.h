@@ -5,7 +5,7 @@
 #ifndef PROYECTO_1_ARRAY_H
 #define PROYECTO_1_ARRAY_H
 #define CAPACITY 3
-#include "Integer.h"
+#include "AlmacenaNum.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ template<class T>
 class Array {
 private:
     int k{};
-    Integer *a[CAPACITY]{};
+    AlmacenaNum *a[CAPACITY]{};
 public:
     Array();
     explicit Array(int n);

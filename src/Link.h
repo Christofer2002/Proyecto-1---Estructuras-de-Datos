@@ -10,14 +10,14 @@
 class Link
 {
 private:
-    Array<Integer>* info;
+    Array<AlmacenaNum>* info;
     Link * sig;
 public:
-    Link(Array<Integer>* info, Link* sig);
-    Link(Array<Integer>* info);
+    Link(Array<AlmacenaNum>* info, Link* sig);
+    Link(Array<AlmacenaNum>* info);
     ~Link();
-    void setInfo(Array<Integer>* info);
-    Array<Integer>* getInfo();
+    void setInfo(Array<AlmacenaNum>* info);
+    Array<AlmacenaNum>* getInfo();
     void setSig(Link*);
     Link* getSig();
     string toStringNodo();
