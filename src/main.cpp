@@ -8,7 +8,7 @@
 int main() {
     unsigned beggin, end;
     double time;
-    cout<<"--------------Pruebas con 3 numeros-------------------"<<endl;
+    cout<<"\n--------------Pruebas con 3 numeros-------------------"<<endl;
     beggin=clock();
     LinkedList<Array<AlmacenaNum>>lista = LinkedList<Array<AlmacenaNum>>::addFactorialToLinkedList(1000, 3);
     end = clock();
