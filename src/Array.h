@@ -12,18 +12,27 @@ using namespace std;
 template<class T>
 class Array {
 private:
+    //Constructores y destructor
     int k{};
     AlmacenaNum *a[CAPACITY]{};
 public:
+    // constructores y destuctor
     Array();
     explicit Array(int n);
+    ~Array();
+
+    //metodos get y set
     T get(int i);
     int getK() const;
     void setK(int k);
+
+    // metodos adicionales
     void add(T* v);
     int size();
+
+    // toString
     string toString();
-    ~Array();
+
 };
 
 template <class T>
@@ -47,6 +56,8 @@ template <class T>
         Array::k = k;
     }
 
+
+    //size returna el tamaño del arreglo
     template <class T>
     int Array<T>::size() { // O(1)
         return k;
@@ -61,6 +72,8 @@ template <class T>
         }*/
     }
 
+
+    // add agrega elementos al arreglo
     template <class T>
     void Array<T>:: add(T* v) { // O(1)
         if(k < CAPACITY)
