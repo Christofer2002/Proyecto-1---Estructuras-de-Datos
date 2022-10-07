@@ -11,6 +11,8 @@
 class Extra {
 
 public:
+
+    //Validaciones
      bool is_valid_number(const std::string& num);
      void strip_leading_zeroes(std::string& num);
      void add_leading_zeroes(std::string& num, size_t num_zeroes);

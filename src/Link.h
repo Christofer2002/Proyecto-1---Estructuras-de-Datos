@@ -13,13 +13,19 @@ private:
     Array<AlmacenaNum>* info;
     Link * sig;
 public:
+    //Constructores
     Link(Array<AlmacenaNum>* info, Link* sig);
     Link(Array<AlmacenaNum>* info);
-    ~Link();
+
+    ~Link();//Destructor
+
+
+    void setSig(Link*);//set
+    Link* getSig();//get
+
+    //Metodos
     void setInfo(Array<AlmacenaNum>* info);
     Array<AlmacenaNum>* getInfo();
-    void setSig(Link*);
-    Link* getSig();
     string toStringNodo();
 };
 

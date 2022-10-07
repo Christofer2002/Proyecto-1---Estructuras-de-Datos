@@ -17,8 +17,10 @@ private:
     Link *primero;
     Link *actual;
 public:
-    LinkedList();
-    ~LinkedList();
+
+    LinkedList();//Constructor
+    ~LinkedList();//Destructor
+    //Metodos
     void add(T *info);
     static Integer factorial(int num);
     static LinkedList addFactorialToLinkedList(int num, int pos);
