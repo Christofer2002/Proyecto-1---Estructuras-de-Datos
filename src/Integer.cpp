@@ -68,7 +68,7 @@ Integer::Integer(const std::string& num) {
 /*
     toString
     ---------
-    Converts a Integer to a string.
+    Convierte un entero en una cadena.
 */
 
 std::string Integer::toString() const {
@@ -126,7 +126,7 @@ Integer& Integer::operator=(const std::string& num) {
 
 /*
     ===========================================================================
-    Unary arithmetic operators
+    Operadores aritméticos unarios
     ===========================================================================
 */
 
@@ -138,9 +138,9 @@ Integer& Integer::operator=(const std::string& num) {
 /*
     +Integer
     -------
-    Returns the value of a Integer.
-    NOTE: This function does not return the absolute value. To get the absolute
-    value of a Integer, use the `abs` function.
+    Devuelve el valor de un entero.
+     NOTA: Esta función no devuelve el valor absoluto. Para obtener el absoluto
+     valor de un entero, utilice la función `abs`.
 */
 
 Integer Integer::operator+() const {
@@ -151,7 +151,7 @@ Integer Integer::operator+() const {
 /*
     -Integer
     -------
-    Returns the negative of a Integer.
+    Devuelve la negativa de un entero.
 */
 
 Integer Integer::operator-() const {
@@ -173,9 +173,9 @@ Integer Integer::operator-() const {
 
 /*
     ===========================================================================
-    Relational operators
-    ===========================================================================
-    All operators depend on the '<' and/or '==' operator(s).
+        Operadores relacionales
+     ================================================== =========================
+     Todos los operadores dependen de los operadores '<' y/o '=='.
 */
 
 #ifndef INTEGER_RELATIONAL_OPERATORS_H
@@ -498,7 +498,7 @@ bool operator>=(const std::string& lhs, const Integer& rhs) {
 
 /*
     ===========================================================================
-    Math functions for Integer
+    Funciones matemáticas para enteros
     ===========================================================================
 */
 
@@ -512,7 +512,7 @@ bool operator>=(const std::string& lhs, const Integer& rhs) {
 /*
     abs
     ---
-    Returns the absolute value of a Integer.
+    Devuelve el valor absoluto de un entero.
 */
 
 Integer abs(const Integer& num) {
@@ -523,8 +523,8 @@ Integer abs(const Integer& num) {
 /*
     big_pow10
     ---------
-    Returns a Integer equal to 10^exp.
-    NOTE: exponent should be a non-negative integer.
+    Devuelve un entero igual a 10^exp.
+     NOTA: el exponente debe ser un número entero no negativo.
 */
 
 Integer big_pow10(size_t exp) {
@@ -535,7 +535,7 @@ Integer big_pow10(size_t exp) {
 /*
     pow (Integer)
     ------------
-    Returns a Integer equal to base^exp.
+   Devuelve un entero igual a base^exp.
 */
 
 Integer pow(const Integer& base, int exp) {
@@ -565,7 +565,7 @@ Integer pow(const Integer& base, int exp) {
 /*
     pow (Integer)
     -------------
-    Returns a Integer equal to base^exp.
+    Devuelve un entero igual a base^exp.
 */
 
 Integer pow(const long long& base, int exp) {
@@ -576,7 +576,7 @@ Integer pow(const long long& base, int exp) {
 /*
     pow (String)
     ------------
-    Returns a Integer equal to base^exp.
+    Devuelve un entero igual a base^exp.
 */
 
 Integer pow(const std::string& base, int exp) {
@@ -588,8 +588,8 @@ Integer pow(const std::string& base, int exp) {
 /*
     sqrt
     ----
-    Returns the positive integer square root of a Integer using Newton's method.
-    NOTE: the input must be non-negative.
+    Devuelve la raíz cuadrada entera positiva de un entero utilizando el método de Newton.
+     NOTA: la entrada debe ser no negativa.
 */
 
 Integer sqrt(const Integer& num) {
@@ -607,11 +607,11 @@ Integer sqrt(const Integer& num) {
         return 3;
 
     Integer sqrt_prev = 0;
-    // The value for `sqrt_current` is chosen close to that of the actual
-    // square root.
-    // Since a number's square root has at least one less than half as many
-    // digits as the number,
-    //     sqrt_current = 10^(half_the_digits_in_num - 1)
+// El valor de `sqrt_current` se elige cercano al actual
+    // raíz cuadrada.
+    // Dado que la raíz cuadrada de un número tiene al menos uno menos que la mitad
+    // dígitos como el número,
+    // sqrt_current = 10^(half_the_digits_in_num - 1)
     Integer sqrt_current = big_pow10(num.toString().size() / 2 - 1);
 
     while (abs(sqrt_current - sqrt_prev) > 1) {
@@ -627,7 +627,7 @@ Integer sqrt(const Integer& num) {
 
 /*
     ===========================================================================
-    Binary arithmetic operators
+    Operadores aritméticos binarios
     ===========================================================================
 */
 
@@ -645,11 +645,11 @@ const long long FLOOR_SQRT_LLONG_MAX = 3037000499;
 /*
     Integer + Integer
     ---------------
-    The operand on the RHS of the addition is `num`.
+    El operando en el RHS de la suma es `num`.
 */
 
 Integer Integer::operator+(const Integer& num) const {
-    // if the operands are of opposite signs, perform subtraction
+    // si los operandos son de signos opuestos, realiza la resta
     if (this->sign == '+' and num.sign == '-') {
         Integer rhs = num;
         rhs.sign = '+';
@@ -661,12 +661,12 @@ Integer Integer::operator+(const Integer& num) const {
         return -(lhs - num);
     }
 
-    // identify the numbers as `larger` and `smaller`
+    // identificar los números como `más grande` y `más pequeño`
     std::string larger, smaller;
     std::tie(larger, smaller) = e->get_larger_and_smaller(this->value, num.value);
 
-    Integer result;      // the resultant sum
-    result.value = "";  // the value is cleared as the digits will be appended
+    Integer result;      // el resultado de sum
+    result.value = "";  // el valor se borra ya que se agregarán los dígitos
     short carry = 0, sum;
     // add the two values
     for (long i = larger.size() - 1; i >= 0; i--) {
@@ -688,11 +688,11 @@ Integer Integer::operator+(const Integer& num) const {
 /*
     Integer - Integer
     ---------------
-    The operand on the RHS of the subtraction is `num`.
+    El operando en el RHS de la resta es `num`.
 */
 
 Integer Integer::operator-(const Integer& num) const {
-    // if the operands are of opposite signs, perform addition
+    // si los operandos son de signos opuestos, realice la suma
     if (this->sign == '+' and num.sign == '-') {
         Integer rhs = num;
         rhs.sign = '+';
@@ -705,7 +705,7 @@ Integer Integer::operator-(const Integer& num) const {
     }
 
     Integer result;      // the resultant difference
-    // identify the numbers as `larger` and `smaller`
+    // identificar los números como "más grande" y "más pequeño"
     std::string larger, smaller;
     if (abs(*this) > abs(num)) {
         larger = this->value;
@@ -724,7 +724,7 @@ Integer Integer::operator-(const Integer& num) const {
     // pad the smaller number with zeroes
     e->add_leading_zeroes(smaller, larger.size() - smaller.size());
 
-    result.value = "";  // the value is cleared as the digits will be appended
+    result.value = "";  // el valor se borra ya que se añadirán los dígitos
     short difference;
     long i, j;
     // subtract the two values
@@ -733,22 +733,22 @@ Integer Integer::operator-(const Integer& num) const {
         if (difference < 0) {
             for (j = i - 1; j >= 0; j--) {
                 if (larger[j] != '0') {
-                    larger[j]--;    // borrow from the j-th digit
+                    larger[j]--;    // tomar prestado del j-ésimo dígito
                     break;
                 }
             }
             j++;
             while (j != i) {
-                larger[j] = '9';    // add the borrow and take away 1
+                larger[j] = '9';    // añadir el préstamo y quitar 1
                 j++;
             }
-            difference += 10;   // add the borrow
+            difference += 10;   // añadir el préstamo
         }
         result.value = std::to_string(difference) + result.value;
     }
     e->strip_leading_zeroes(result.value);
 
-    // if the result is 0, set its sign as +
+    // si el resultado es 0, establece su signo como +
     if (result.value == "0")
         result.sign = '+';
 
@@ -768,7 +768,7 @@ Integer Integer::operator*(const Integer& num) const {
     if (abs(*this) <= FLOOR_SQRT_LLONG_MAX and abs(num) <= FLOOR_SQRT_LLONG_MAX)
         product = std::stoll(this->value) * std::stoll(num.value);
     else {
-        // identify the numbers as `larger` and `smaller`
+        // identificar los números como `más grande` y `más pequeño`
         std::string larger, smaller;
         std::tie(larger, smaller) = e->get_larger_and_smaller(this->value, num.value);
 
@@ -817,8 +817,8 @@ Integer Integer::operator*(const Integer& num) const {
 /*
     divide
     ------
-    Helper function that returns the quotient and remainder on dividing the
-    dividend by the divisor, when the divisor is 1 to 10 times the dividend.
+    Función auxiliar que devuelve el cociente y el resto al dividir el
+     dividendo por el divisor, cuando el divisor es de 1 a 10 veces el dividendo.
 */
 
 std::tuple<Integer, Integer> divide(const Integer& dividend, const Integer& divisor) {
@@ -842,8 +842,8 @@ std::tuple<Integer, Integer> divide(const Integer& dividend, const Integer& divi
 /*
     Integer / Integer
     ---------------
-    Computes the quotient of two Integers using the long-division method.
-    The operand on the RHS of the division (the divisor) is `num`.
+Calcula el cociente de dos enteros usando el método de división larga.
+     El operando en el lado derecho de la división (el divisor) es `num`.
 */
 
 Integer Integer::operator/(const Integer& num) const {
@@ -907,8 +907,8 @@ Integer Integer::operator/(const Integer& num) const {
 /*
     Integer % Integer
     ---------------
-    Computes the modulo (remainder on division) of two Integers.
-    The operand on the RHS of the modulo (the divisor) is `num`.
+Calcula el módulo (resto de la división) de dos enteros.
+     El operando en el RHS del módulo (el divisor) es `num`.
 */
 
 Integer Integer::operator%(const Integer& num) const {
@@ -931,7 +931,7 @@ Integer Integer::operator%(const Integer& num) const {
     }
     e->strip_leading_zeroes(remainder.value);
 
-    // remainder has the same sign as that of the dividend
+// el resto tiene el mismo signo que el dividendo
     remainder.sign = this->sign;
     if (remainder.value == "0")     // except if its zero
         remainder.sign = '+';
@@ -1144,7 +1144,7 @@ Integer operator%(const std::string& lhs, const Integer& rhs) {
 
 /*
     ===========================================================================
-    Arithmetic-assignment operators
+    Operadoras de asignación aritmética
     ===========================================================================
 */
 
@@ -1337,7 +1337,7 @@ Integer& Integer::operator%=(const std::string& num) {
 
 /*
     ===========================================================================
-    Increment and decrement operators
+    Operadoras de incremento y decremento
     ===========================================================================
 */
 
@@ -1399,7 +1399,7 @@ Integer Integer::operator--(int) {
     return temp;
 }
 
-//converts a string to a long
+//convierte una cadena en larga
 long Integer::parse(const std::string &sub) {
     return std::stol(sub);
 }

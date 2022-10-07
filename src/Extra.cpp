@@ -21,7 +21,7 @@ bool Extra::is_valid_number(const std::string& num) {
 /*
     strip_leading_zeroes
     --------------------
-    Strip the leading zeroes from a number represented as a string.
+         Elimina los ceros iniciales de un número representado como una cadena.
 */
 
 void Extra::strip_leading_zeroes(std::string& num) {
@@ -40,7 +40,7 @@ void Extra::strip_leading_zeroes(std::string& num) {
 /*
     add_leading_zeroes
     ------------------
-    Adds a given number of leading zeroes to a string-represented integer `num`.
+    Agrega un número determinado de ceros iniciales a un número entero representado por una cadena `num`.
 */
 
 void Extra::add_leading_zeroes(std::string& num, size_t num_zeroes) {
@@ -51,7 +51,7 @@ void Extra::add_leading_zeroes(std::string& num, size_t num_zeroes) {
 /*
     add_trailing_zeroes
     -------------------
-    Adds a given number of trailing zeroes to a string-represented integer `num`.
+    Agrega un número determinado de ceros finales a un entero `num` representado por una cadena.
 */
 
 void Extra::add_trailing_zeroes(std::string& num, size_t num_zeroes) {
@@ -62,9 +62,9 @@ void Extra::add_trailing_zeroes(std::string& num, size_t num_zeroes) {
 /*
     get_larger_and_smaller
     ----------------------
-    Identifies the given string-represented integers as `larger` and `smaller`,
-    padding the smaller number with leading zeroes to make it equal in length to
-    the larger number.
+    Identifica los números enteros representados por cadenas dados como "más grande" y "más pequeño".
+     rellenando el número más pequeño con ceros a la izquierda para que tenga la misma longitud que
+     el número mayor.
 */
 
 std::tuple<std::string, std::string> Extra::get_larger_and_smaller(const std::string& num1,
