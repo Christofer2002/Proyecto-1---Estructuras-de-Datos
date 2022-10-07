@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>72</y>
+      <w>240</w>
+      <h>792</h>
+    </coordinates>
+    <panel_attributes>Interger
+--
+-value:string
+-sing:char
+-e:Extra = new Extra()
+--
++Interger():Interger
++Interger(const Interger&amp;):Interger
++Interger(const long long&amp;):Interger
++Interger(const string&amp;):Interger
++operador+(const Interger&amp;):Interger
++operador-(const Interger&amp;):Interger
++operador*(const Interger&amp;):Interger
++operador/(const Interger&amp;):Interger
++operador%(const Interger&amp;):Interger
++operador+(const long long&amp;):Interger
++operador-(const long long&amp;):Interger
++operador*(const long long&amp;):Interger
++operador/(const long long&amp;):Interger
++operador%(const long long&amp;):Interger
++operador+(const string&amp;):Interger
++operador-(const string&amp;):Interger
++operador*(const string&amp;):Interger
++operador/(const string&amp;):Interger
++operador%(const string&amp;):Interger
++operador+=(const Interger&amp;):Interger
++operador-=(const Interger&amp;):Interger
++operador*=(const Interger&amp;):Interger
++operador/=(const Interger&amp;):Interger
++operador%=(const Interger&amp;):Interger
++operador+=(const long long&amp;):Interger
++operador-=(const long long&amp;):Interger
++operador*=(const long long&amp;):Interger
++operador/=(const long long&amp;):Interger
++operador%=(const long long&amp;):Interger
++operador+=(const string&amp;):Interger
++operador-=(const string&amp;):Interger
++operador*=(const string&amp;):Interger
++operador/=(const string&amp;):Interger
++operador%=(const string&amp;):Interger
++operador++():Interger&amp;
++operador--():Interger&amp;
++operador++(int):Interger&amp;
++operador--(int):Interger&amp;
++operator&lt;(const Integer&amp;) :bool
++operator&gt;(const Integer&amp;) :bool
++operator&lt;=(const Integer&amp;) :bool
++operator&gt;=(const Integer&amp;) :bool
++operator==(const Integer&amp;) :bool
++operator!=(const Integer&amp;) :bool
++operator&lt;(const long long&amp;) :bool
++operator&gt;(const long long&amp;) :bool
++operator&lt;=(const long long&amp;) :bool
++operator&gt;=(const long long&amp;) :bool
++operator==(const long long&amp;) :bool
++operator!=(const long long&amp;) :bool
++operator&lt;(const std::string&amp;) :bool
++operator&gt;(const std::string&amp;) :bool
++operator&lt;=(const std::string&amp;) :bool
++operator&gt;=(const std::string&amp;) :bool
++operator==(const std::string&amp;) :bool
++operator!=(const std::string&amp;) :bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>80</y>
+      <w>272</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Link
+--
+-Array(Array&lt;AlmacenaNum&gt;*info,Link * sig):Array
+-sig* : Link
+--
++Link(Array&lt;AlmaceenaNum*info,Link* sig&gt;):Link
++Link(Array&lt;AlmacenaNum&gt;* info):Link
++~Link():Link
++setInfo(Array&lt;AlmacenaNum&gt;* info):void  Link
++Array&lt;AlmacenaNum&gt;* getInfo():Array
++setSig(Link*):void 
++getSig():Link* 
++toStringNodo():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>328</y>
+      <w>168</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Array
+--
+-k{}: int
+-*a[CAPACITY]:AlmacenaNum 
+--
++Array():Array
++Array(int n):Array
++get(int i):T
++getK() const:int
++setK(int k):void 
++add(T* v):void 
++size():int 
++toString():string 
++~Array():Array</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>328</y>
+      <w>256</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>AlmacenaNum
+--
+-num : long long
+--
++AlmacenaNum():AlmacenaNum
++AlmacenaNum(long loog num):AlmacenaNum
++setNum(long long num):void 
++getNum() const:long long 
++toString() const:Ssring</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>72</y>
+      <w>248</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Extra
+--
+--
++is_valid_number(const string&amp;):bool
++strip_leading_zeroes(string&amp; num):void
++add_leading_zeroes(string&amp;,size_t):void
++add_trailing_zeroes(string&amp;,size_t):void
++get_larger_and_smaller(const string&amp;, const string&amp;):tuple&lt;string,string&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1088</x>
+      <y>72</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>328</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=n    1 </panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>240</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>80</y>
+      <w>360</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>LinkedList
+--
+-primero:Link*
+-actual:Link*
+--
++LinkedList():LinkedList
++~LinkedList():LinkedList
++add(T *info):void
++factorial(int num):static Integer 
++addFactorialToLinkedList(int num, int pos):static LinkedList 
++fibonnacci(int num):static Integer 
++addFibonnacciToLinkedList(int n, int pos):static LinkedList&lt;T&gt; a
++combinatoria(int a, int b):static Integer 
++addCombinationalToLinkedList(int a, int b, int pos):static LinkedList&lt;T&gt; 
++flipLinkedList():void 
++toString():string 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>80</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>80</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
