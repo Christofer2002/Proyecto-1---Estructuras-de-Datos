@@ -13,7 +13,7 @@ template<class T>
 class Array {
 private:
     //Constructores y destructor
-    int k{};
+    int k;
     AlmacenaNum *a[CAPACITY]{};
 public:
     // constructores y destuctor
@@ -55,7 +55,6 @@ template <class T>
     void Array<T>::setK(int k) {
         Array::k = k;
     }
-
 
     //size returna el tamaño del arreglo
     template <class T>

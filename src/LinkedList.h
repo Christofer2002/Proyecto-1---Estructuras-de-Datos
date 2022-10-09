@@ -92,7 +92,7 @@ LinkedList<T> LinkedList<T>::addFactorialToLinkedList(int num, int pos) {
         }else{
         integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
         array->add(integer);
-        //Si la variable time es igual a los numeros que se quieren insertar, entonces en cada Array tendrá sus numeros correspondiente y se inserta a la lista
+        //Si la variable time es igual a la cantidad de numeros que se quieren insertar, entonces en cada Array tendrá sus numeros correspondiente y se inserta a la lista
         time += 1;
         if (time == pos) {
             ll->add(array);
@@ -176,7 +176,7 @@ LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos)
     int postInit = 0, time = 0;
     //realiza un parseo de la combinaria la comvierte a string
     sub = combinatoria(a, b).toString();
-    //Divide el tamaño total entre el numero que se quiere insertar realiza la operacion correspondiante en cada posicion del Array
+    //Divide el tamaño total entre el numero que se quiere insertar realizando la operacion correspondiante en cada posicion del Array
     int tam = round(((sub.size() / pos) / 10.0) * 10.0);
     for (int i = 0; i < tam; ++i) {
         (i != tam) ? number = Integer::parse(sub.substr(postInit, pos)) : number = Integer::parse(
