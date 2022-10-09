@@ -108,6 +108,7 @@ LinkedList<T> LinkedList<T>::addFactorialToLinkedList(int num, int pos) {
 
 template <class T>
 Integer LinkedList<T>::fibonnacci(int num) {
+    // se encarga de calcular la sucesion de fibonacci segun su formula.
     Integer a = 0, b = 1, c = 0;
     for (int i = 2; i <= num; i++) {
         c = a + b;
@@ -125,26 +126,34 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
+    //Obtiene el fibonacci de 1000 y lo parsea a una hilera de caracteres
     sub = fibonnacci(n).toString();
+    //obtiene el de el array
     int e = sub.size();
+    //Divide el tamaño total entre el numero que se quiere insertar realiza la operacion correspondiante en cada posicion del Array
     int tam = round(((sub.size() / pos) / 10.0) * 10.0)+1;
+    //realiza un recorrido en el array obiene la posicion  y si es el que se deaea lo agrega tanto en el array como en la linkedList.
     for (int i = 0; i < tam; ++i) {
         (i != tam) ? number = Integer::parse(sub.substr(postInit, pos)) : number = Integer::parse(
                 sub.substr(postInit, pos-1));
         if(i == tam-1){
+            //Convierte los numeros que se quiere insertar en cada posicion en numeros tipo long long
             integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
             array->add(integer);
             ll->add(array);
             break;
         }else{
+            //Si la variable time es igual a los numeros que se quieren insertar, entonces en cada Array tendrá sus numeros correspondiente y se inserta a la lista
         integer = new AlmacenaNum(number);
         array->add(integer);
         time += 1;
+
         if (time == pos) {
             ll->add(array);
             array = new Array<AlmacenaNum>(3);
             time = 0;
         }
+            //Se suma la cantidad de numeros que se quieren insertar a postInit para que inserte los siguientes numeros al siguiente Array
         postInit += pos;
         }
     }
@@ -152,6 +161,7 @@ LinkedList<T> LinkedList<T>::addFibonnacciToLinkedList(int n, int pos) {
 }
 
 template<class T>
+//realiza la operacion correspondiente a la combinatoria
 Integer LinkedList<T>::combinatoria(int a, int b) {
     return factorial(a) / (factorial(b) * factorial(a - b));
 }
@@ -164,31 +174,39 @@ LinkedList<T> LinkedList<T>::addCombinationalToLinkedList(int a, int b, int pos)
     string sub;
     long long number = 0;
     int postInit = 0, time = 0;
+    //realiza un parseo de la combinaria la comvierte a string
     sub = combinatoria(a, b).toString();
+    //Divide el tamaño total entre el numero que se quiere insertar realiza la operacion correspondiante en cada posicion del Array
     int tam = round(((sub.size() / pos) / 10.0) * 10.0);
     for (int i = 0; i < tam; ++i) {
         (i != tam) ? number = Integer::parse(sub.substr(postInit, pos)) : number = Integer::parse(
                 sub.substr(postInit, pos - 1));
         if(i == tam-1){
+            //realiza un parseo que convierte los numeros a tipo long long
             integer = new AlmacenaNum(Integer::parse(sub.substr(postInit, pos)));
+            //En cada posicion del Array inserta los numeros y despues el Array en cada nodo de la lista
             array->add(integer);
             ll->add(array);
             break;
         }else{
+            //Convierte los numeros que se quiere insertar en cada posicion en numeros tipo long long
             integer = new AlmacenaNum(number);
             array->add(integer);
+            //Si la variable time es igual a los numeros que se quieren insertar, entonces en cada Array tendrá sus numeros correspondiente y se inserta a la lista
             time += 1;
             if (time == pos) {
                 ll->add(array);
                 array = new Array<AlmacenaNum>(3);
                 time = 0;
             }
+            //Se suma la cantidad de numeros que se quieren insertar a postInit para que inserte los siguientes numeros al siguiente Array
             postInit += pos;
         }
     }
     return *ll;
 }
 
+//imprime la linkedlist
 template<class T>
 string LinkedList<T>::toString() {
     stringstream ss;
@@ -201,6 +219,8 @@ string LinkedList<T>::toString() {
     return ss.str();
 }
 
+
+// hace que la lista se voltee
 template<class T>
 void LinkedList<T>::flipLinkedList() {
     Link *prev = nullptr;
